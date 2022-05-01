@@ -12,6 +12,11 @@ public class Player {
         this.strength = strength;
     }
 
+    public Player(String name, int strength) {
+        this.name = name;
+        this.strength = strength;
+    }
+
     public Player() {
     }
 
@@ -25,10 +30,6 @@ public class Player {
 
     public int getStrength() {
         return strength;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public void setName(String name) {

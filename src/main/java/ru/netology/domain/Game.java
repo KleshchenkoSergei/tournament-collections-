@@ -1,14 +1,21 @@
 package ru.netology.domain;
 
-import java.util.ArrayList;
-import java.util.Collection;
+import java.util.*;
 
 public class Game {
 
-    private Collection<Player> game = new ArrayList<>();
+    private Map<String, Integer> game = new HashMap<>();
 
-    public boolean add(Player player) {
-        return this.game.add(player);
+    public Game(Map<String, Integer> game) {
+        this.game = game;
+    }
+
+    public Game() {
+
+    }
+
+    public Integer add(Player player) {
+        return this.game.put(player.getName(), player.getStrength());
     }
 
     public void register(Player player) {
@@ -21,13 +28,15 @@ public class Game {
         int strengthPlayer2 = 0;
         boolean player1Registered = false;
         boolean player2Registered = false;
-        for (Player player : game) {
-            if (player.getName() == playerName1) {
-                strengthPlayer1 = player.getStrength();
+
+        for (Map.Entry<String, Integer> entry : game.entrySet()) {
+
+            if (entry.getKey() == playerName1) {
+                strengthPlayer1 = entry.getValue();
                 player1Registered = true;
             }
-            if (player.getName() == playerName2) {
-                strengthPlayer2 = player.getStrength();
+            if (entry.getKey() == playerName2) {
+                strengthPlayer2 = entry.getValue();
                 player2Registered = true;
             }
         }
