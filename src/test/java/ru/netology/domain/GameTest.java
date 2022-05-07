@@ -6,18 +6,18 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GameTest {
 
-    Player item1 = new Player(1, "Dmitriy", 15);
-    Player item2 = new Player(2, "Leonid", 13);
-    Player item3 = new Player(3, "Matvey", 30);
-    Player item4 = new Player(4, "Igor", 7);
-    Player item5 = new Player(5, "Victor", 13);
-    Player item6 = new Player(6, "Bot1", 0);
-    Player item7 = new Player(7, "Bot2", -1);
+    Player item1 = new Player("Dmitriy", 15);
+    Player item2 = new Player("Leonid", 13);
+    Player item3 = new Player("Matvey", 30);
+    Player item4 = new Player("Igor", 7);
+    Player item5 = new Player("Victor", 13);
+    Player item6 = new Player("Bot1", 0);
+    Player item7 = new Player("Bot2", -1);
+
+    Game game = new Game();
 
     @Test
     public void shouldTestWinFirst() {
-
-        Game game = new Game();
 
         game.register(item1);
         game.register(item2);
@@ -31,8 +31,6 @@ class GameTest {
     @Test
     public void shouldTestWinSecond() {
 
-        Game game = new Game();
-
         game.register(item2);
         game.register(item3);
 
@@ -44,8 +42,6 @@ class GameTest {
 
     @Test
     public void shouldTestNoWin() {
-
-        Game game = new Game();
 
         game.register(item2);
         game.register(item5);
@@ -59,8 +55,6 @@ class GameTest {
     @Test
     public void shouldTestNotRegisteredFirst() {
 
-        Game game = new Game();
-
         game.register(item2);
         game.register(item5);
 
@@ -71,8 +65,6 @@ class GameTest {
 
     @Test
     public void shouldTestNotRegisteredSecond() {
-
-        Game game = new Game();
 
         game.register(item2);
         game.register(item5);
@@ -85,8 +77,6 @@ class GameTest {
     @Test
     public void shouldTestNoPlayers() {
 
-        Game game = new Game();
-
         assertThrows(NotRegisteredException.class, () -> {
             game.round("Leonid", "Matvey");
         });
@@ -94,8 +84,6 @@ class GameTest {
 
     @Test
     public void shouldTestLess1() {
-
-        Game game = new Game();
 
         game.register(item6);
         game.register(item7);
@@ -108,8 +96,6 @@ class GameTest {
 
     @Test
     public void shouldTestMorePlayers() {
-
-        Game game = new Game();
 
         game.register(item1);
         game.register(item2);
